@@ -1,6 +1,7 @@
 package com.example.demo.user.domain;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
@@ -12,9 +13,7 @@ import lombok.Setter;
 
 import java.util.UUID;
 
-
-
-
+@Entity
 @Table(name = "users")
 @Setter
 @Getter
@@ -22,25 +21,25 @@ import java.util.UUID;
 public class User {
 
     @Id
-    private UUID id ;
+    private UUID id;
 
     @NotBlank
     @Column(unique = true)
-    private String username ;
+    private String username;
 
     @Email
     @NotBlank
     @Column(unique = true)
-    private String email ;
+    private String email;
 
-    @Min(value = 16 , message = "Debes tener 16 o mas")
-    private Integer age ;
-
-    @NotBlank
-    private String dni ;
+    @Min(value = 16, message = "Debes tener 16 o mas")
+    private Integer age;
 
     @NotBlank
-    private String password ;
+    private String dni;
+
     @NotBlank
-    private String role ;
+    private String password;
+    @NotBlank
+    private String role;
 }
